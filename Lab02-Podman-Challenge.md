@@ -10,7 +10,7 @@
 
 Socket của Docker daemon bị lộ ra ngoài và máy chủ đã bị gỡ khỏi mạng để điều tra. Không còn Docker daemon để dùng. Phải đưa **smartapp** sang chạy bằng **Podman rootless** ngay trong hôm nay — kèm một container **sidecar** thu log — và vẫn phục vụ trên **cổng 80**.
 
-Nhiệm vụ của nhóm: chạy lại smartapp ở chế độ daemonless + rootless, gom nó cùng sidecar vào một Pod, rồi xuất ra manifest Kubernetes để sẵn sàng lên cluster sau này.
+Nhiệm vụ\: chạy lại smartapp ở chế độ daemonless + rootless, gom smartapp và sidecar vào cùng một Pod, rồi xuất ra manifest Kubernetes để sẵn sàng lên cluster sau này.
 
 ## Thông tin đang có
 
@@ -39,7 +39,7 @@ Manifest phải dựng lại được toàn bộ Pod (2 container, phục vụ c
 ./graders/grade02.sh submission
 ```
 
-Lặp lại tới khi **mọi mục PASS**. Grader chỉ kiểm trạng thái cuối — nhóm làm cách nào cũng được.
+Lặp lại tới khi **mọi mục PASS**.
 
 ## Ràng buộc
 
