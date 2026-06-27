@@ -10,13 +10,13 @@
 
 Một đồng nghiệp vừa nghỉ việc và để lại **smartapp** dưới dạng **một file image duy nhất** — `smartapp-legacy.tar`. Không có Dockerfile, không ghi chú, không ai nhớ image được build thế nào. Image **quá nặng** và **bị chết** khi chạy trên các node nhỏ của team.
 
-Nhiệm vụ của nhóm: tìm hiểu image này đang có vấn đề gì, rồi **giao lại một baseline image sạch và gọn** để dùng trong challenge tiếp theo.
+Nhiệm vụ: tìm hiểu image này đang có vấn đề gì, rồi **tạo một baseline image sạch và gọn** để dùng trong challenge tiếp theo.
 
 ## Thông tin đang có
 
 - `lab01-workdir/smartapp-legacy.tar`
 
-Không có mã nguồn, không có Dockerfile — phải tự khôi phục những gì cần từ chính image.
+Không có mã nguồn, không có Dockerfile — phải tự khôi phục những gì cần từ chính image được cung cấp.
 
 ---
 
@@ -41,7 +41,7 @@ MIN_MEM_MB=...
 
 > Lưu ý: đặt giá trị trong dấu nháy kép nếu có dấu cách (ví dụ `CMD="python app.py"`).
 
-## Bàn giao — thư mục `baseline/`
+## Output — thư mục `baseline/`
 
 ```
 baseline/
@@ -51,7 +51,7 @@ baseline/
   answers.env
 ```
 
-Image build ra từ `baseline/` phải đặt tên **`smartapp:1.0`** — Lab 02 sẽ dùng lại chính nó.
+Image build ra từ `baseline/` phải đặt tên **`smartapp:1.0`** — Lab 02 sẽ dùng lại image này.
 
 ## Tự chấm
 
@@ -59,16 +59,16 @@ Image build ra từ `baseline/` phải đặt tên **`smartapp:1.0`** — Lab 02
 ./graders/grade01.sh baseline
 ```
 
-Lặp lại tới khi **mọi mục REQUIRED đều PASS**. Grader chỉ kiểm **trạng thái cuối** — nhóm làm cách nào cũng được.
+Lặp lại tới khi **mọi mục REQUIRED đều PASS**.
 
 ## Ràng buộc & gợi ý mức cao (không phải lời giải)
 
-- Không dùng lại Dockerfile cũ — **không có** Dockerfile nào cả.
-- "Giữ nguyên hành vi" nghĩa là cùng route, cùng cổng, cùng nội dung trả về — không cần giữ cùng base image hay cùng kích thước.
-- Mọi thứ nhóm cần để trả lời đều **nằm trong chính image legacy**.
+- **không có** Dockerfile, chỉ có file tarball.
+- "Giữ nguyên hành vi": cùng route, cùng cổng, cùng nội dung trả về — không cần giữ cùng base image hay cùng kích thước.
+- Mọi dữ kiện cần thiết đều **nằm trong chính image legacy**.
 
 ---
 
 ### Input cho Lab 02
 
-Giữ lại thư mục `baseline/` và image `smartapp:1.0`. Ở Lab 02, máy chủ Docker bị gỡ khỏi mạng sau một sự cố lộ socket — nhóm sẽ phải mang chính `smartapp:1.0` này sang chạy **rootless bằng Podman**.
+Giữ lại thư mục `baseline/` và image `smartapp:1.0`. Ở Lab 02, máy chủ Docker bị gỡ khỏi mạng sau một sự cố lộ socket — sẽ phải mang chính `smartapp:1.0` này sang chạy **rootless bằng Podman**.
