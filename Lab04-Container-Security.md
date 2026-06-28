@@ -77,7 +77,8 @@ FROM gcr.io/distroless/python3-debian12:nonroot
 WORKDIR /app
 COPY --from=build /app/deps /app/deps
 COPY app.py .
-ENV PYTHONPATH=/app/deps          # để Python tìm thấy gói đã cài
+# để Python tìm thấy gói đã cài
+ENV PYTHONPATH=/app/deps
 EXPOSE 8080
 USER nonroot
 CMD ["app.py"]
